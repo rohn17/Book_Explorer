@@ -4,25 +4,26 @@ import books from "../data/books";
 
 function BookDetail() {
   const { id } = useParams();
-
-  // find the selected book
   const book = books.find((b) => b.id === parseInt(id));
 
   if (!book) {
-    return <h2>Book not found</h2>;
+    return <h2 style={{ textAlign: "center" }}>Book not found</h2>;
   }
 
   return (
-    <div className="container">
-      <h2>{book.title}</h2>
+    <div className="container detail">
+      
+      <img src={book.imageUrl} alt={book.title} />
 
-      <img src={book.imageUrl} alt={book.title} className="image" />
-      <p><strong>Author:</strong> {book.author}</p>
+      <h2>{book.title}</h2>
+      <h4>{book.author}</h4>
+
       <p>{book.description}</p>
 
       <Link to="/">
-        <button className="btn">Back</button>
+        <button className="btn">⬅ Back</button>
       </Link>
+
     </div>
   );
 }

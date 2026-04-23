@@ -17,7 +17,6 @@ function BookDetail() {
       <h2>{book.title}</h2>
 
       <img src={book.imageUrl} alt={book.title} className="image" />
-
       <p><strong>Author:</strong> {book.author}</p>
       <p>{book.description}</p>
 

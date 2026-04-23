@@ -5,20 +5,22 @@ import books from "../data/books";
 function BookList() {
   return (
     <div className="container">
-      <h2>Book List</h2>
+      <div className="grid">
+        {books.map((book) => (
+          <div key={book.id} className="card">
+            
+            <img src={book.imageUrl} alt={book.title} className="image" />
+            
+            <h3>{book.title}</h3>
+            <p>{book.author}</p>
 
-      {books.map((book) => (
-        <div key={book.id} className="card">
-          <h3>{book.title}</h3>
-          <p>by {book.author}</p>
+            <Link to={`/books/${book.id}`}>
+              <button className="btn">Read More</button>
+            </Link>
 
-          {/* Read More Button */}
-          <Link to={`/books/${book.id}`}>
-            <button className="btn">Read More</button>
-          </Link>
-        </div>
-      ))}
-      
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
